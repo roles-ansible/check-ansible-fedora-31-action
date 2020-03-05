@@ -1,17 +1,17 @@
-[![Github Marketplace](https://raw.githubusercontent.com/roles-ansible/check-ansible-fedora-latest-action/master/.github/marketplace.svg?sanitize=true)](https://github.com/marketplace/actions/check-ansible-fedora-latest)
-[![MIT License](https://raw.githubusercontent.com/roles-ansible/check-ansible-fedora-latest-action/master/.github/license.svg?sanitize=true)](https://github.com/roles-ansible/check-ansible-fedora-latest-action/blob/master/LICENSE)
+[![Github Marketplace](https://raw.githubusercontent.com/roles-ansible/check-ansible-fedora-31-action/master/.github/marketplace.svg?sanitize=true)](https://github.com/marketplace/actions/check-ansible-fedora-31)
+[![MIT License](https://raw.githubusercontent.com/roles-ansible/check-ansible-fedora-31-action/master/.github/license.svg?sanitize=true)](https://github.com/roles-ansible/check-ansible-fedora-31-action/blob/master/LICENSE)
 
- Check Ansible Fedora latest
+ Check Ansible Fedora 31
 =======================
-This action allows you to test your ansible role or your playbook in a Docker Container with ``fedora:latest``.
+This action allows you to test your ansible role or your playbook in a Docker Container with ``fedora:31``.
 
 ## Usage
-To use the action simply create an ``ansible-fedora-latest.yml`` *(or choose custom ``*.yml`` name)* in the ``.github/workflows/`` directory.
+To use the action simply create an ``ansible-fedora-31.yml`` *(or choose custom ``*.yml`` name)* in the ``.github/workflows/`` directory.
 
 For example:
 
 ```yaml
-name: Ansible check fedora:latest  # feel free to pick your own name
+name: Ansible check fedora:31  # feel free to pick your own name
 
 on: [push, pull_request]
 
@@ -24,9 +24,9 @@ jobs:
     # Important: This sets up your GITHUB_WORKSPACE environment variable
     - uses: actions/checkout@v2
 
-    - name: ansible check with fedora:latest
+    - name: ansible check with fedora:31
       # replace "master" with any valid ref
-      uses: roles-ansible/check-ansible-fedora-latest-action@master
+      uses: roles-ansible/check-ansible-fedora-31-action@master
       with:
         targets: "./"
         #  [required]
@@ -88,7 +88,7 @@ The Dockerfile and associated scripts and documentation in this project are rele
 
  Credits
 --------------
-The initial GitHub action has been created by [Stefan Stölzle](/stoe) at
+The initial GitHub action has been created by [Stefan Stölzle](https://github.com/stoe) at
 [stoe/actions](https://github.com/stoe/actions).<br/>
 It was used by ansible for lint checks at [ansible/ansible-lint-action](https://github.com/ansible/ansible-lint-action.git)<br/>
-It was modified from [L3D](github.com/do1jlr) to check ansible roles and playbooks.
+It was modified from [L3D](https://github.com/do1jlr) to check ansible roles and playbooks.
