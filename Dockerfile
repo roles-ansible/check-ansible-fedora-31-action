@@ -14,12 +14,13 @@ LABEL "com.github.actions.color"="green"
 RUN dnf update --assumeyes && dnf install --assumeyes \
     python3 \
     python3-pip \
+    pipx
     git \
     gcc \
     python-setuptools \
     libffi \
       && dnf clean all \
-      && pip3 install --no-cache-dir --user ansible \
+      && pipx install ansible \
       && ansible --version
 
 COPY ansible-docker.sh /ansible-docker.sh
