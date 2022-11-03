@@ -1,3 +1,4 @@
+# hadolint ignore=DL3007
 FROM fedora:31
 
 LABEL "maintainer"="L3D <l3d@c3woc.de>"
@@ -9,13 +10,16 @@ LABEL "com.github.actions.description"="Check ansible role or playbook with Cent
 LABEL "com.github.actions.icon"="aperture"
 LABEL "com.github.actions.color"="green"
 
+# hadolint ignore=DL3008,DL3013,DL3041
 RUN dnf update --assumeyes && dnf install --assumeyes \
     python3 \
     python3-pip \
     git \
-    ansible
+    python3-dev \
+      && dnf clean all \
+      && pip3 install --no-cache-dir setuptools \
+      && pip3 install --no-cache-dir ansible \
+      && ansible --version
 
-RUN ansible --version
-
-ADD ansible-docker.sh /ansible-docker.sh
+COPY ansible-docker.sh /ansible-docker.sh
 ENTRYPOINT ["/ansible-docker.sh"]
