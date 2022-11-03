@@ -19,7 +19,7 @@ RUN dnf update --assumeyes && dnf install --assumeyes \
     python-setuptools \
     libffi \
       && dnf clean all \
-      && pip3 install --no-cache-dir ansible \
+      && pip3 install --no-cache-dir --user ansible \
       && ansible --version
 
 COPY ansible-docker.sh /ansible-docker.sh
