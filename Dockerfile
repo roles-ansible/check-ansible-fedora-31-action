@@ -10,16 +10,19 @@ LABEL "com.github.actions.description"="Check ansible role or playbook with Cent
 LABEL "com.github.actions.icon"="aperture"
 LABEL "com.github.actions.color"="green"
 
-# hadolint ignore=DL3008,DL3013,DL3041
+# hadolint ignore=DL3008,DL3041
 RUN dnf update --assumeyes && dnf install --assumeyes \
     python3 \
     python3-pip \
+    pipx \
     git \
     gcc \
     python-setuptools \
     libffi \
-      && dnf clean all \
-      && pip3 install --no-cache-dir --user ansible \
+      && dnf clean all
+
+# hadolint ignore=DL3013
+RUN pipx install ansible \
       && ansible --version
 
 COPY ansible-docker.sh /ansible-docker.sh
