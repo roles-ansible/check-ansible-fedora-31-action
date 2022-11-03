@@ -23,7 +23,7 @@ RUN dnf update --assumeyes && dnf install --assumeyes \
 # hadolint ignore=DL3013
 RUN python3 -m pip install --user --no-cache-dir pipx \
   && python3 -m pipx ensurepath \
-  && pipx install ansible \
+  && /root/.local/bin/pipx install ansible \
   && ansible --version
 
 COPY ansible-docker.sh /ansible-docker.sh
