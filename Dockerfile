@@ -16,7 +16,7 @@ RUN dnf update --assumeyes && dnf install --assumeyes \
     python3-pip \
     git \
     gcc \
-    setuptools \
+    python-setuptools \
       && dnf clean all \
       && pip3 install --no-cache-dir ansible \
       && ansible --version
